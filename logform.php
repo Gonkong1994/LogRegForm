@@ -4,8 +4,11 @@
     require_once "blocks/header.php";
 
     $data = $_POST;
+
+    if($data['login'] == "")
+        echo '<div style="color: green;">Введите свои даные!</div>';
     
-        
+    elseif(isset($data['do_login'])){
         $errors = array();
 
         $jsonData = [];
@@ -29,6 +32,7 @@
                 } 
                 else{
                     $errors[] = 'Пользователь с таким логин не найден!';
+                   
                 } 
                      
                 
@@ -46,6 +50,8 @@
             }          
                     
         }
+    }
+        
     
         
         
