@@ -19,6 +19,7 @@
                          $errors[] = 'Пароль неверно введен!';
                     //  header('location: signupform.php');
                     //  exit();
+                    //  exit();
                     
                 } 
                 else{
