@@ -18,24 +18,18 @@ function getUserById($id){
 
 }
 
-function createUser($data){
-    file_put_contents("dbJsonFile.json", json_encode($jsonData, JSON_PRETTY_PRINT));
+function deleteUser($id){
+    $users = getUsers();
+
+    foreach($users as $i => $user)
+        if($user['login'] == $id){
+            array_splice($users, $i, 1);
+        }
+    putJson($users);
 
 }
 
-/*function updateUser($data, $id){
-    $users = getUsers();
-    foreach($users as $i => $user){
-        if($user['login'] == $id){
-             $user[$i] = array_merge($user, $data);
-        }
-    }
-    file_put_contents(__DIR__. '/dbJsonFile.json', json_encode($users), JSON_PRETTY_PRINT);
-
-}*/
-
-function deleteUser($id){
-
-
+function putJson($users){
+    file_put_contents(__DIR__. '/dbJsonfile.json' , json_encode($users, JSON_PRETTY_PRINT));
 }
 

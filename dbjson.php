@@ -32,8 +32,7 @@
                             <td><?php echo $user['email'] ?></td>
                             <td><?php echo $user['password'] ?></td>
                             <td>
-                                <a href="view.php?id=<?php echo $user['login'] ?>" class="btn btn-sm btn-outline-info">View</a>
-                                <a href="update.php?id=<?php echo $user['login'] ?>" class="btn btn-sm btn-outline-secondary">Update</a>
+                                <a href="view.php?id=<?php echo $user['login'] ?>" class="btn btn-sm btn-outline-info">View</a>                                
                                 <a href="delete.php?id=<?php echo $user['login'] ?>" class="btn btn-sm btn-outline-danger">Delete</a>
                             </td>
                         </tr>
