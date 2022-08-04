@@ -1,11 +1,14 @@
 <?php
+    session_start();
     $title = "Авторизация";
     require_once "blocks/header.php";
 
     $data = $_POST;
-    $errors = array();
+    
+        
+        $errors = array();
 
-    $jsonData = [];
+        $jsonData = [];
         //Read file
         if(file_exists('dbJsonFile.json')){
             $json = file_get_contents('dbJsonFile.json');
@@ -13,13 +16,15 @@
             
             foreach($jsonData as $key => $value){
                 if($data['login'] == $value['login']){
-                    if($data['password'] == $value['password'])                    
-                        echo '<div style="color: green;">Вы успешно авторизованы</div><hr>';
+                    if($data['password'] == $value['password']){
+                        $_SESSION['logged_user'] = $value['login'];                   
+                        echo '<div style="color: green;">Вы успешно авторизованы!<br/>Можете перейти на <a href="/">главную</a> страницу</div><hr>';
+                    } 
+                        
                     else 
                          $errors[] = 'Пароль неверно введен!';
                     //  header('location: signupform.php');
-                    //  exit();
-                    //  exit();
+                    
                     
                 } 
                 else{
@@ -41,6 +46,8 @@
             }          
                     
         }
+    
+        
         
 ?>
 
@@ -49,7 +56,8 @@
     <form action="logform.php" method="POST">        
         <input type="text" name="login" placeholder="Введите Логин" class="form-control" value= "<?php echo @$data['login']; ?>"><br>
         <input type="password" name="password" placeholder="Введите пароль" class="form-control"><br>
-        <input type="submit" value="Войти" class="btn btn-success">
+        
+        <button type="submit" name= "do_login" class="btn btn-success">Войти</button>
     </form>
 </div>
 
