@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Dmitri",
+        "login": "log1233",
+        "email": "123@mail.ru",
+        "password": "123456",
+        "password_2": "123456"
+    },
+    {
+        "name": "Dmitri",
+        "login": "log1233234",
+        "email": "123@mail.ru",
+        "password": "123456",
+        "password_2": "123456"
+    },
+    {
+        "name": "Dmitri",
+        "login": "log12332343",
+        "email": "123@mail.ru",
+        "password": "123456",
+        "password_2": "123456"
+    },
+    {
+        "name": "Dmitri",
+        "login": "log123312341234",
+        "email": "122341233@mail.ru",
+        "password": "123456",
+        "password_2": "123456"
+    }
+]
