@@ -2,16 +2,35 @@
     session_start();
     $title = "Регистрация";
     require_once "blocks/header.php";
-    //require __DIR__. '/crud.php';
+    require "classes/handler.php";
+    require "classes/signupValidator.php";
+    
 
-    $data = $_POST;
-   
+    $data = $_POST;   
 
        //здесь регистрируем
-       $errors = array();
-        if(trim($data['name']) == '')
-            $errors[] = 'Введите имя';    
-        if(!preg_match("/^(([a-zA-Z' -]{2,30})|([а-яА-ЯЁёІіЇїҐґЄє' -]{2,30}))$/u", $data['name']))
+      //  $errors = array();
+       // if(trim($data['name']) == '')
+       $Validator = new SignupValidator($data);
+       
+
+        $error = $Validator->validateName();
+        if(!empty($error))
+            Handler:: printError($error);
+        
+        $error = $Validator->validateLogin();
+        if(!empty($error))
+            Handler:: printError($error);
+                 
+        $error = $Validator->validateEmail();
+        if(!empty($error))
+            Handler:: printError($error);
+
+        $error = $Validator->validatePassword();
+        if(!empty($error))
+            Handler:: printError($error);
+           // $errors[] = 'Введите имя';    
+      /*  if(!preg_match("/^(([a-zA-Z' -]{2,30})|([а-яА-ЯЁёІіЇїҐґЄє' -]{2,30}))$/u", $data['name']))
             $errors[] = 'Введите корректное имя';
         if(strlen ($data['login']) < 6)
             $errors[] = 'Логин должен содержать не менее 6 символов';
@@ -24,7 +43,7 @@
             $errors[] = 'Пароль должен состоять из букв и цифр';      
         if($data['password_2'] != $data['password'])  
             $errors[] = 'Повторный пароль введен неверно';
-       
+       */
        
        
            // if(empty($errors)){
@@ -70,9 +89,9 @@
               //Register
                 
           
-            }else {
-                 echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';
-             }
+            }//else {
+               //  echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';
+          //   }
             
    
 ?>

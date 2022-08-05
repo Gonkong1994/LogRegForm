@@ -5,9 +5,7 @@
 
     require 'crud.php';
     $users = getUsers();
-   // echo '<pre>';
-    //var_dump($users);
-   // echo '</pre>';
+
 ?>
 
 <?php if( isset($_SESSION['logged_user'])) : ?>
