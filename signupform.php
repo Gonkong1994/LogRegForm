@@ -43,7 +43,7 @@
                          //  exit();
                         } 
 
-                        if($data['email'] == $value['email']){
+                        if($data['email'] == $jsonData['email']){
                             $errors[] =  'Пользователь с таким email уже зарегестрирован!';
                         }
                         
@@ -51,12 +51,17 @@
                         
                 }
             if(empty($errors)){
-           
+                
                 // Write file
                 if($data){
-                
-                    $jsonData[] = $data;
-                    file_put_contents("dbJsonFile.json", json_encode($jsonData, JSON_PRETTY_PRINT));           
+                    $hash_password = password_hash($data['password'], PASSWORD_DEFAULT);
+                    $data['password'] = $hash_password;
+                    $jsonData[] = $data;                            
+                    file_put_contents("dbJsonFile.json", json_encode($jsonData, JSON_PRETTY_PRINT)); 
+                    //var_dump($jsonData);
+                    unset($data['password']);
+                    
+                              
                     
                  //  header("Location:".$_SERVER['HTTP_REFERER']);
                  // unset($jsonData);

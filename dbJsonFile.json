@@ -1,16 +1,30 @@
 [
     {
         "name": "Dmitri",
-        "login": "log1233",
-        "email": "123@mail.ru",
-        "password": "123456",
+        "login": "log12dfv3f367",
+        "email": "12fdrv6573@mail.ru",
+        "password": "$2y$10$P0kJ6xkMjEVxFe4B0vuuIeoWsB7..S0EY2YgsmWLbbUtJnqpxBsha",
         "password_2": "123456"
     },
     {
         "name": "Dmitri",
-        "login": "log1233234",
-        "email": "123@mail.ru",
-        "password": "123456",
+        "login": "log12f33",
+        "email": "12e3@mail.ru",
+        "password": "$2y$10$wc4n.3ky2i3E76DppBB00OsaJ8F\/FbU3qGNi70ZD9WrBjgBJt.8TK",
+        "password_2": "123456"
+    },
+    {
+        "name": "Dmitri",
+        "login": "log124f33",
+        "email": "142e3@mail.ru",
+        "password": "$2y$10$P7\/DWitnFVDoW9PHOhoKjuB6Pxt43BTTCQW6wuHKosKcQicxJsmVO",
+        "password_2": "123456"
+    },
+    {
+        "name": "Dmitri",
+        "login": "log124fr33",
+        "email": "142we3@mail.ru",
+        "password": "$2y$10$exKXdd87wDoAizM7AxogV.aUUBF0\/llcmi4UyjpgE8WuxabzIPdT2",
         "password_2": "123456"
     }
 ]
