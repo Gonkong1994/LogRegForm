@@ -19,7 +19,8 @@
             
             foreach($jsonData as $key => $value){
                 if($data['login'] == $value['login']){
-                    if($data['password'] == $value['password']){
+                   
+                     if(password_verify($data['password'], $value['password'])) {
                         $_SESSION['logged_user'] = $value['login'];                   
                         echo '<div style="color: green;">Вы успешно авторизованы!<br/>Можете перейти на <a href="/">главную</a> страницу</div><hr>';
                     } 
