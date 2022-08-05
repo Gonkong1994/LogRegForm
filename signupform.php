@@ -19,10 +19,8 @@
         
         if(strlen ($data['password']) < 6)
             $errors[] = 'Пароль должен быть не менее 6 символов';   
-      //  if(!preg_match('?<=\d', $pass))
-       //     $errors[] = 'нет цифр';
-      //  if(!preg_match('~[a-zа-яё]~', $pass))   Валидация пароля
-       //     $errors[] = 'нет букв';
+        if(!preg_match('/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,25}$/', $data['password']))
+            $errors[] = 'Пароль должен состоять из букв и цифр';      
         if($data['password_2'] != $data['password'])  
             $errors[] = 'Повторный пароль введен неверно';
        
