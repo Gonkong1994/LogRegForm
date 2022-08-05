@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $title = "База данных";
     require_once "blocks/header.php";
 
@@ -8,6 +9,16 @@
     //var_dump($users);
    // echo '</pre>';
 ?>
+
+<?php if( isset($_SESSION['logged_user'])) : ?>
+    Авторизован!<br>
+    Привет, <?php echo $_SESSION['logged_user']; ?><br>
+    <a href="/logout.php">Выйти</a>
+    <hr>
+    
+    
+    <?php endif; ?>
+
     <h1>База данных</h1>
     <section>
         <div class="container mt-3">

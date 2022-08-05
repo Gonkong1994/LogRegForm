@@ -2,6 +2,9 @@
     session_start();
     $title = "Авторизация";
     require_once "blocks/header.php";
+    
+    
+  
 
     $data = $_POST;
 
@@ -22,7 +25,7 @@
                    
                      if(password_verify($data['password'], $value['password'])) {
                         $_SESSION['logged_user'] = $value['login'];                   
-                        echo '<div style="color: green;">Вы успешно авторизованы!<br/>Можете перейти на <a href="/">главную</a> страницу</div><hr>';
+                        echo '<div style="color: green;">Вы успешно авторизованы!<br/>Можете перейти на <a href="/index.php">главную</a> страницу</div><hr>';
                     } 
                         
                     else 
@@ -57,6 +60,14 @@
         
         
 ?>
+<?php if( isset($_SESSION['logged_user'])) : ?>
+    Авторизован!<br>
+    Привет, <?php echo $_SESSION['logged_user']; ?><br>
+    <a href="/logout.php">Выйти</a>
+    <hr>
+    
+    
+    <?php endif; ?>
 
 <div class="container mt-5">
     <h1>Авторизация</h1>

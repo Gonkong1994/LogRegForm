@@ -5,12 +5,14 @@
 ?>
 <?php if( isset($_SESSION['logged_user'])) : ?>
     Авторизован!<br>
-    Привет, <?php echo $_SESSION['logged_user']; ?>
+    Привет, <?php echo $_SESSION['logged_user']; ?><br>
+    <a href="/logout.php">Выйти</a>
     <hr>
+    
     
     <?php endif; ?>
     <h1>Главная страница</h1>
-    <a href="/logout.php">Выйти</a>
+    
 
 <?php
     require_once "blocks/foot.php";
