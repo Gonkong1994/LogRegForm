@@ -3,14 +3,35 @@
         "name": "Dmitri",
         "login": "log1233",
         "email": "123@mail.ru",
-        "password": "$2y$10$4QPxll6mxLMPgHZhdifPfO1L6Ph3mdOdUhT7SDPUKujj62Tcr2mfW",
-        "password_2": "123456"
+        "password": "$2y$10$U1zsePa9jnPa799XNVtdUOqnlxlkIpxwqWAsLxZK2NQkXNBodbbgK",
+        "password_2": "123qwe"
     },
     {
         "name": "Dmitri",
-        "login": "log123343234",
-        "email": "123423423@mail.ru",
-        "password": "$2y$10$wW8aXUmaJVi3Gld4BxEFnupmYQK0hRfEcZKZsKRjc1.WUb5ZZAwYC",
+        "login": "log1233",
+        "email": "123@mail.ru",
+        "password": "$2y$10$vBybtmTcveCHu2LIZW.6XufGe\/s9tU6iSCn2cFhwRhQluZ9NiCNGC",
+        "password_2": "123qwe"
+    },
+    {
+        "name": "Dmitri",
+        "login": "log1233",
+        "email": "123@mail.ru",
+        "password": "$2y$10$tYtI4E6rEED1CwCCclhH9eBRW46dhEFDVqlpDZy78cI\/OFdvTlZtq",
+        "password_2": "123qwe"
+    },
+    {
+        "name": "Dmitri",
+        "login": "log123321323",
+        "email": "121233@mail.ru",
+        "password": "$2y$10$3xWsPUcJdxupiVz6OxCGQ.Zi\/xOVqU7Cm3sX.MvVu\/OTycZURcIky",
+        "password_2": "123qwe"
+    },
+    {
+        "name": "Dmitri",
+        "login": "log1233qweqwe",
+        "email": "12123123113@mail.ru",
+        "password": "$2y$10$Z27vuUSNgOVJIDLz8dwV.utI0ke4duFZqNqits70PNOEB18I3bx\/y",
         "password_2": "123qwe"
     }
 ]

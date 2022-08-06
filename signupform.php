@@ -9,10 +9,9 @@
     $data = $_POST;   
 
        //здесь регистрируем
-        $errors = array();
-       // if(trim($data['name']) == '')
-    $Validator = new SignupValidator($data['name'],$data['login'],$data['email'],$data['password'],$data['password_2']);
        
+       // if(trim($data['name']) == '')
+    $Validator = new SignupValidator($data['name'],$data['login'],$data['email'],$data['password'],$data['password_2']);       
 
     $error = $Validator->validateName();
     if(!empty($error))
@@ -36,75 +35,60 @@
     if(!empty($error))
         Handler:: printError($error);
 
-   /* if (($data['password_2']) != $data['password'])
-        $error = "Повторный пароль введен неверно";
-        Handler:: printError($error);*/
-
-    
-           // $errors[] = 'Введите имя';    
-      /*  if(!preg_match("/^(([a-zA-Z' -]{2,30})|([а-яА-ЯЁёІіЇїҐґЄє' -]{2,30}))$/u", $data['name']))
-            $errors[] = 'Введите корректное имя';
-        if(strlen ($data['login']) < 6)
-            $errors[] = 'Логин должен содержать не менее 6 символов';
-        if(trim($data['login']) == '' || trim($data['email']) == '' ||  $data['password'] == '' )
-            $errors[] = 'Введите Данные Во Все Поля';
-        
-        if(strlen ($data['password']) < 6)
-            $errors[] = 'Пароль должен быть не менее 6 символов';   
-        if(!preg_match('/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,25}$/', $data['password']))
-            $errors[] = 'Пароль должен состоять из букв и цифр';      
-        if($data['password_2'] != $data['password'])  
-            $errors[] = 'Повторный пароль введен неверно';
-       */
+   
        
        
-           // if(empty($errors)){
-            $jsonData = [];
-            //Read file
-            if(file_exists('dbJsonFile.json')){
-                $json = file_get_contents('dbJsonFile.json');
-                $jsonData = json_decode($json, true);   
-                
-                foreach($jsonData as $key => $value){
-                    if($data['login'] == $value['login']){
-                        
-                        $errors[] =  'Пользователь с таким логином уже зарегестрирован!';
-                        //  header('location: signupform.php');
-                        //  exit();
-                    } 
-
-                    if($data['email'] == $jsonData['email']){
-                        $errors[] =  'Пользователь с таким email уже зарегестрирован!';
-                    }
+    if(empty($error)){
+        $jsonData = [];
+        $errors = array();
+        //Read file
+        if(file_exists('dbJsonFile.json')){
+            $json = file_get_contents('dbJsonFile.json');
+            $jsonData = json_decode($json, true);   
+            
+            foreach($jsonData as $key => $value){
+                if($data['login'] == $value['login']){
                     
+                    $errors[] =  'Пользователь с таким логином уже зарегестрирован!';
+                    //  header('location: signupform.php');
+                    //  exit();
+                } 
+
+                if($data['email'] == $value['email']){
+                    $errors[] =  'Пользователь с таким email уже зарегестрирован!';
                 }
-                    
-            }
+                
+                
+            }            
+        }
+
         if(empty($errors)){
             
             // Write file
             if($data){
-                $hash_password = password_hash($data['password'], PASSWORD_DEFAULT);
-                $data['password'] = $hash_password;
-                $jsonData[] = $data;                            
-                file_put_contents("dbJsonFile.json", json_encode($jsonData, JSON_PRETTY_PRINT)); 
-                //var_dump($jsonData);
-                unset($data['password']);
-                
-                            
-                
-                //  header("Location:".$_SERVER['HTTP_REFERER']);
-                // unset($jsonData);
-                echo '<div style="color: green;">Вы успешно зарегестрированы</div><hr>';
+                    $hash_password = password_hash($data['password'], PASSWORD_DEFAULT);
+                    $data['password'] = $hash_password;
+                    $jsonData[] = $data;                            
+                    file_put_contents("dbJsonFile.json", json_encode($jsonData, JSON_PRETTY_PRINT)); 
+                    //var_dump($jsonData);
+                    unset($data['password']);
+                    
+                                
+                    
+                    //  header("Location:".$_SERVER['HTTP_REFERER']);
+                    // unset($jsonData);
+                    echo '<div style="color: green;">Вы успешно зарегестрированы</div><hr>';
             }
+                
+                //Register
+                
             
-            //Register
-            
+           
+        } else {
+            echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';
         
-        }else {
-              echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';
-            }
-            
+        }   
+    }       
    
 ?>
 

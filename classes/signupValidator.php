@@ -8,7 +8,7 @@ class SignupValidator{
     private $password;
     private $password_2;
 
-    public function __construct(  $iName,   $iLogin,   $iEmail,  $iPassword, $iPassword2){
+    public function __construct($iName, $iLogin, $iEmail, $iPassword, $iPassword2){
 
         $this->name = $iName;
         $this->login = $iLogin;
@@ -107,6 +107,7 @@ class SignupValidator{
     }
 
     public function validatePassword2(){
+        $error = $this->isEmpty($this->password_2);
         if(!empty($error))
             return $error . 'пароль повторно';
         else{
