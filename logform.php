@@ -8,29 +8,32 @@
 
     $data = $_POST;
 
-    if($data['login'] == "")
+    if($data['login'] == "" || $data['password'] == "")
         echo '<div style="color: green;">Введите свои даные!</div>';
     
-    elseif(isset($data['do_login'])){
+    elseif(isset($data['do_login'])){        
         $errors = array();
-
         $jsonData = [];
         //Read file
         if(file_exists('dbJsonFile.json')){
+            
+
             $json = file_get_contents('dbJsonFile.json');
             $jsonData = json_decode($json, true);   
             
             foreach($jsonData as $key => $value){
                 if($data['login'] == $value['login']){
-                   
+                   var_dump($value);                    
                      if(password_verify($data['password'], $value['password'])) {
                         $_SESSION['logged_user'] = $value['login'];                   
                         echo '<div style="color: green;">Вы успешно авторизованы!<br/>Можете перейти на <a href="/index.php">главную</a> страницу</div><hr>';
+                        header('location: logform.php');
+                        exit;
                     } 
                         
                     else 
                          $errors[] = 'Пароль неверно введен!';
-                    //  header('location: signupform.php');
+                      //header('location: signupform.php');
                     
                     
                 } 
