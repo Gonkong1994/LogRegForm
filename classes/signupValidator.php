@@ -6,45 +6,47 @@ class SignupValidator{
     private $login;
     private $email;
     private $password;
+    private $password_2;
 
-  /*  public function __construct($iName,$iLogin,$iEmail,$iPassword){
+    public function __construct(  $iName,   $iLogin,   $iEmail,  $iPassword, $iPassword2){
 
         $this->name = $iName;
         $this->login = $iLogin;
         $this->email = $iEmail;
         $this->password = $iPassword;
-    }*/
+        $this->password_2 = $iPassword2;
+    }
 
     private function isEmpty($field){
 
         if(empty(trim($field)))
-            return 'Введите';
+            return 'Введите ';
     }
 
     public function validateName(){
 
         $error = $this->isEmpty($this->name);
         if(!empty($error))
-            return $error . ' Имя';
+            return $error . 'Имя';
         else{
             $error = $this->validateNameLen();
-            if(!empty(error))
+            if(!empty($error))
                 return $error;
             $error = $this->validateNameChars();
-            if(!empty(error))
+            if(!empty($error))
                 return $error;
         }
     }
 
-    public function validateNameLen(){
+    private function validateNameLen(){
 
         if(strlen($this->name) < 2)
             return 'Имя должно быть не менее 2 символов';
     }
 
-    public function validateNameChars(){
+    private function validateNameChars(){
 
-        if(preg_match("/^(([a-zA-Z' -]{2,30})|([а-яА-ЯЁёІіЇїҐґЄє' -]{2,30}))$/u",$this->name))
+        if(!preg_match("/^(([a-zA-Z' -]{2,30})|([а-яА-ЯЁёІіЇїҐґЄє' -]{2,30}))$/u",$this->name))
             return 'Имя должно состоять только из букв';
     }
 
@@ -52,21 +54,27 @@ class SignupValidator{
 
         $error= $this->isEmpty($this->login);
         if(!empty($error))
-            $error . ' Логин';
+           return $error . 'Логин';
         else{
-            $loginLen = strlen($this->login);
-            if($loginLen < 6)
-                $error = 'Логин должен быть не менее 6-ти симвлов';
-        }
+            $error = $this->validateLoginLen();
+            if(!empty($error))
+                return $error;           
+         }
+    }
+
+    private function validateLoginLen(){
+
+        if(strlen($this->login) < 6)
+            return 'Логин должен быть не менее 6-ти симвлов';
     }
 
     public function validateEmail(){
 
         $error= $this->isEmpty($this->email);
         if(!empty($error))
-            return $error. ' email';
+            return $error. 'email';
         else{
-            if(!preg_match())  // валидация EMAIL
+            if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))  // валидация EMAIL
                 $error = 'Неверный email';
         }
     }
@@ -75,7 +83,7 @@ class SignupValidator{
 
         $error = $this->isEmpty($this->password);
         if(!empty($error))
-            $error . ' Пароль';
+           return $error . 'Пароль';
         else{
             $error = $this->validatePasswordLen();
             if(!empty($error))
@@ -89,15 +97,29 @@ class SignupValidator{
     private function validatePasswordLen(){
 
         if(strlen($this->password) < 6)
-            return 'Логин должен быть не менее 6-ти симвлов';
+            return 'Пароль должен быть не менее 6-ти симвлов';
     }
 
     private function validatePasswordChars(){
 
-        if(!preg_match('/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,25}$/', $this->password) < 6)
+        if(!preg_match('/^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,25}$/', $this->password))
             return 'Пароль должен состоять из букв и цифр';
     }
 
+    public function validatePassword2(){
+        if(!empty($error))
+            return $error . 'пароль повторно';
+        else{
+            $error = $this->validatePasswordToPassword2();
+            if(!empty($error))
+                return $error;
+        }
+    }
+    
+    private function validatePasswordToPassword2(){
+        if($this->password != $this->password_2)
+            return 'Повторный пароль введен не верно';
+    }
 
 
     

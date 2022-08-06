@@ -3,21 +3,14 @@
         "name": "Dmitri",
         "login": "log1233",
         "email": "123@mail.ru",
-        "password": "$2y$10$jk4WRZmn7vV5oFFSfBfe.uBzP9CgjQgMI044jc.9xP6xBUZ5NOkU.",
+        "password": "$2y$10$4QPxll6mxLMPgHZhdifPfO1L6Ph3mdOdUhT7SDPUKujj62Tcr2mfW",
         "password_2": "123456"
     },
     {
         "name": "Dmitri",
-        "login": "log1233324234",
-        "email": "122342343@mail.ru",
-        "password": "$2y$10$LBSnGlTjOIK1jKV7dkdsDeY\/k2JNC\/5CDKiTvb3f6epFo0GrKFCfK",
-        "password_2": "123qwerty"
-    },
-    {
-        "name": "Dmitri",
-        "login": "log1233343",
-        "email": "13323@mail.ru",
-        "password": "$2y$10$uXYyfsNusR4lRb3M\/A45neNwzmhZBA1Qe69U0rvcxehdcfY.WBy.W",
+        "login": "log123343234",
+        "email": "123423423@mail.ru",
+        "password": "$2y$10$wW8aXUmaJVi3Gld4BxEFnupmYQK0hRfEcZKZsKRjc1.WUb5ZZAwYC",
         "password_2": "123qwe"
     }
 ]
