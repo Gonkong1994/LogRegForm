@@ -1,7 +1,7 @@
 <?php
     session_start();
     $title = "База данных";
-    require_once "blocks/header.php";
+    require '../blocks/header.php';
 
     require 'crud.php';
     $users = getUsers();
@@ -11,7 +11,7 @@
 <?php if( isset($_SESSION['logged_user'])) : ?>
     Авторизован!<br>
     Привет, <?php echo $_SESSION['logged_user']; ?><br>
-    <a href="/logout.php">Выйти</a>
+    <a href="/form/logout.php">Выйти</a>
     <hr>
     
     
@@ -53,5 +53,5 @@
     </section>
 
 <?php
-    require_once "blocks/foot.php";
+    require_once "../blocks/foot.php";
 ?>

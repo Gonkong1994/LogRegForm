@@ -1,7 +1,8 @@
 <?php
     session_start();
     $title = "Авторизация";
-    require_once "blocks/header.php";
+    //require_once '../blocks/header.php';
+    require_once '../blocks/header.php';
     
     
   
@@ -15,10 +16,10 @@
         $errors = array();
         $jsonData = [];
         //Read file
-        if(file_exists('dbJsonFile.json')){
+        if(file_exists('../dbJsonFile.json')){
             
 
-            $json = file_get_contents('dbJsonFile.json');
+            $json = file_get_contents('../dbJsonFile.json');
             $jsonData = json_decode($json, true);   
             
             foreach($jsonData as $key => $value){
@@ -66,7 +67,7 @@
 <?php if( isset($_SESSION['logged_user'])) : ?>
     Авторизован!<br>
     Привет, <?php echo $_SESSION['logged_user']; ?><br>
-    <a href="/logout.php">Выйти</a>
+    <a href="/form/logout.php">Выйти</a>
     <hr>
     
     
@@ -74,7 +75,7 @@
 
 <div class="container mt-5">
     <h1>Авторизация</h1>
-    <form action="logform.php" method="POST">        
+    <form action="/form/logform.php" method="POST">        
         <input type="text" name="login" placeholder="Введите Логин" class="form-control" value= "<?php echo @$data['login']; ?>"><br>
         <input type="password" name="password" placeholder="Введите пароль" class="form-control"><br>
         
@@ -83,5 +84,5 @@
 </div>
 
 <?php
-    require_once "blocks/foot.php";
+    require_once "../blocks/foot.php";
 ?>

@@ -9,9 +9,9 @@
 </head>
 <body>
     <header>
-    <a href = "index.php">Главная</a> |
-    <a href = "logform.php">Авторизация</a> |
-    <a href = "signupform.php">Регистрация</a> |
-    <a href = "dbjson.php">База Данных</a>
+    <a href = "../index.php">Главная</a> |
+    <a href = "../form/logform.php">Авторизация</a> |
+    <a href = "../form/signupform.php">Регистрация</a> |
+    <a href = "../crud/dbjson.php">База Данных</a>
 
     </header>

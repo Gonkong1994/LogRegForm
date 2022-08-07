@@ -12,5 +12,54 @@
         "email": "121233@mail.ru",
         "password": "$2y$10$3xWsPUcJdxupiVz6OxCGQ.Zi\/xOVqU7Cm3sX.MvVu\/OTycZURcIky",
         "password_2": "123qwe"
+    },
+    {
+        "name": "Dmitri",
+        "login": "1",
+        "email": "1@mail.ru",
+        "password": "$2y$10$qUZvEWXk9FOq57q.LY4SkOetdeWPOVktfzXbKLkf6zoNpvz2jnsay",
+        "password_2": "123qwe"
+    },
+    {
+        "name": "Dmitri",
+        "login": "2",
+        "email": "132323223@mail.ru",
+        "password": "$2y$10$qcVLABJUo5dsoYiRWLY4beMs3R9tdEH5XMZc7ZqveSQWO\/2HY8CNO",
+        "password_2": "123qwe"
+    },
+    {
+        "name": "Dmitri",
+        "login": "222",
+        "email": "1323wer23223@mail.ru",
+        "password": "$2y$10$RCf8CI\/qd32Hr5pMIhP.7OS5uSSwu0fRKbrzI3JCvDEQBIrIR.gJq",
+        "password_2": "123qwe"
+    },
+    {
+        "name": "Dmitri",
+        "login": "",
+        "email": "",
+        "password": "$2y$10$icvtmub2m30fc6bsNm0kjOeuq4o3M4fK7DOma4pGib4gO.XfmvNLq",
+        "password_2": ""
+    },
+    {
+        "name": "Dmitri",
+        "login": "1231",
+        "email": "12232323@mail.ru",
+        "password": "$2y$10$JtaiWktaXcr0Dw9Npo0uXulym7rU8UzTAn0prnPhMTOXSHX\/OEK2W",
+        "password_2": ""
+    },
+    {
+        "name": "Dmitri",
+        "login": "143",
+        "email": "12121233@mail.ru",
+        "password": "$2y$10$uDUU4T4v1VHVgvFjEUNjFOCsf6qJJZAc30Y4z0viafVjYol9d4t26",
+        "password_2": "123qwe"
+    },
+    {
+        "name": "Dmitri",
+        "login": "43",
+        "email": "122223@mail.ru",
+        "password": "$2y$10$MNZ4MDGEN4ySJHZFoIiLV.bafjnew5nJgHP7Df1xH6zZfHiW4ynXa",
+        "password_2": "123qwe"
     }
 ]

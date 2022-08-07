@@ -4,5 +4,5 @@
 
     unset($_SESSION['logged_user']);
 
-    header('Location: /logform.php');
+    header('Location: /form/logform.php');
 ?>

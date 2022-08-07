@@ -1,12 +1,12 @@
 <?php
     session_start();
     $title = "Главная станица";
-    require_once "blocks/header.php";
+    require "blocks/header.php";
 ?>
 <?php if( isset($_SESSION['logged_user'])) : ?>
     Авторизован!<br>
     Привет, <?php echo $_SESSION['logged_user']; ?><br>
-    <a href="/logout.php">Выйти</a>
+    <a href="/form/logout.php">Выйти</a>
     <hr>
     
     

@@ -1,7 +1,7 @@
 <?php
 
 function getUsers(){
-    return json_decode(file_get_contents(__DIR__. '/dbJsonFile.json'), true);
+    return json_decode(file_get_contents('../dbJsonFile.json'), true);
     
 
 }
@@ -30,6 +30,6 @@ function deleteUser($id){
 }
 
 function putJson($users){
-    file_put_contents(__DIR__. '/dbJsonfile.json' , json_encode($users, JSON_PRETTY_PRINT));
+    file_put_contents('../dbJsonfile.json' , json_encode($users, JSON_PRETTY_PRINT));
 }
 
