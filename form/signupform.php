@@ -13,32 +13,44 @@
        // if(trim($data['name']) == '')
     $Validator = new SignupValidator($data['name'],$data['login'],$data['email'],$data['password'],$data['password_2']);       
 
+   // $error = array();
+
     $error = $Validator->validateName();
     if(!empty($error))
         Handler:: printError($error);
-    
-    $error = $Validator->validateLogin();
-    if(!empty($error))
-        Handler:: printError($error);
+    else{
+        $error = $Validator->validateLogin();
+        if(!empty($error))
+            Handler:: printError($error);
+        else{
+            $error = $Validator->validateEmail();
+            if(!empty($error))
+                Handler:: printError($error);
+            else{
+                    $error = $Validator->validatePassword();
+                     if(!empty($error))
+                    Handler:: printError($error);
+                else{
+                    $error = $Validator->validatePassword2();
+                    if(!empty($error))
+                    Handler:: printError($error);
+                }
                 
-    $error = $Validator->validateEmail();
-    if(!empty($error))
-        Handler:: printError($error);
+            }
+            
 
+            
+        }    
+    }  
+                        
+        
+    
     
 
-    $error = $Validator->validatePassword();
-    if(!empty($error))
-        Handler:: printError($error);
-
-    $error = $Validator->validatePassword2();
-    if(!empty($error))
-        Handler:: printError($error);
-
-   
+    
        
        
-    elseif(empty($error)){
+    if(empty($error)){
         $jsonData = [];
         $errors = array();
         //Read file
@@ -88,7 +100,9 @@
             echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';
         
         }   
-    }       
+    }  //elseif(!empty($error))
+        // Handler:: printError($error); 
+            
    
 ?>
 
