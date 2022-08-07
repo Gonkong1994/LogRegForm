@@ -1,11 +1,7 @@
 <?php
     session_start();
-    $title = "Авторизация";
-    //require_once '../blocks/header.php';
-    require_once '../blocks/header.php';
-    
-    
-  
+    $title = "Авторизация";   
+    require_once '../blocks/header.php';      
 
     $data = $_POST;
 
@@ -16,45 +12,28 @@
         $errors = array();
         $jsonData = [];
         //Read file
-        if(file_exists('../dbJsonFile.json')){
-            
+        if(file_exists('../dbJsonFile.json')){            
 
             $json = file_get_contents('../dbJsonFile.json');
             $jsonData = json_decode($json, true);   
             
             foreach($jsonData as $key => $value){
-                if($data['login'] == $value['login']){
-                   var_dump($value);                    
+                if($data['login'] == $value['login']){                                       
                      if(password_verify($data['password'], $value['password'])) {
                         $_SESSION['logged_user'] = $value['login'];                   
                         echo '<div style="color: green;">Вы успешно авторизованы!<br/>Можете перейти на <a href="/index.php">главную</a> страницу</div><hr>';
                         header('location: logform.php');
                         exit;
-                    } 
-                        
-                    else 
-                         $errors[] = 'Пароль неверно введен!';
-                      //header('location: signupform.php');
-                    
-                    
+                    }else 
+                         $errors[] = 'Пароль неверно введен!';                         
                 } 
                 else{
-                    $errors[] = 'Пользователь с таким логин не найден!';
-                   
-                } 
-                     
-                
-                     
-                     
-
-               
-                          
+                    $errors[] = 'Пользователь с таким логин не найден!';                   
+                }                             
             } 
             if( ! empty($errors))
             {
-                echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';
-            
-                
+                echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';                    
             }          
                     
         }

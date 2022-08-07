@@ -6,14 +6,9 @@
     require "../classes/signupValidator.php";
     
 
-    $data = $_POST;   
-
-       //здесь регистрируем
+    $data = $_POST;        
        
-       // if(trim($data['name']) == '')
-    $Validator = new SignupValidator($data['name'],$data['login'],$data['email'],$data['password'],$data['password_2']);       
-
-   // $error = array();
+    $Validator = new SignupValidator($data['name'],$data['login'],$data['email'],$data['password'],$data['password_2']);    
 
     $error = $Validator->validateName();
     if(!empty($error))
@@ -27,13 +22,13 @@
             if(!empty($error))
                 Handler:: printError($error);
             else{
-                    $error = $Validator->validatePassword();
-                     if(!empty($error))
+                $error = $Validator->validatePassword();
+                if(!empty($error))
                     Handler:: printError($error);
                 else{
                     $error = $Validator->validatePassword2();
                     if(!empty($error))
-                    Handler:: printError($error);
+                        Handler:: printError($error);
                 }
                 
             }
@@ -59,49 +54,32 @@
             $jsonData = json_decode($json, true);   
             
             foreach($jsonData as $key => $value){
-                if($data['login'] == $value['login']){
-                    
-                    $errors[] =  'Пользователь с таким логином уже зарегестрирован!';
-                    //  header('location: signupform.php');
-                    //  exit();
+                if($data['login'] == $value['login']){                    
+                    $errors[] =  'Пользователь с таким логином уже зарегестрирован!';                    
                 } 
 
                 if($data['email'] == $value['email']){
                     $errors[] =  'Пользователь с таким email уже зарегестрирован!';
                 }
-                
-                
             }            
         }
 
-        if(empty($errors)){
-            
+        if(empty($errors)){            
             // Write file
             if($data){
                     $hash_password = password_hash($data['password'], PASSWORD_DEFAULT);
+                    $hash_password_2 = password_hash($data['password_2'], PASSWORD_DEFAULT);
                     $data['password'] = $hash_password;
+                    $data['password_2'] = $hash_password_2;
                     $jsonData[] = $data;                            
-                    file_put_contents("../dbJsonFile.json", json_encode($jsonData, JSON_PRETTY_PRINT)); 
-                    //var_dump($jsonData);
-                    unset($data['password']);
-                    
-                                
-                    
-                    //  header("Location:".$_SERVER['HTTP_REFERER']);
-                    // unset($jsonData);
+                    file_put_contents("../dbJsonFile.json", json_encode($jsonData, JSON_PRETTY_PRINT));                     
+                    unset($data['password']);                                                                
                     echo '<div style="color: green;">Вы успешно зарегестрированы</div><hr>';
-            }
-                
-                //Register
-                
-            
-           
+            }                  
         } else {
-            echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';
-        
+            echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';        
         }   
-    }  //elseif(!empty($error))
-        // Handler:: printError($error); 
+    }  
             
    
 ?>
