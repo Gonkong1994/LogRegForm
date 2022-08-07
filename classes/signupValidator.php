@@ -46,8 +46,8 @@ class SignupValidator{
 
     private function validateNameChars(){
 
-        if(!preg_match("/^(([a-zA-Z' -]{2,30})|([а-яА-ЯЁёІіЇїҐґЄє' -]{2,30}))$/u",$this->name))
-            return 'Имя должно состоять только из букв';
+        if((!preg_match("/^(([a-zA-Z' -]{2,30})|([а-яА-ЯЁёІіЇїҐґЄє' -]{2,30}))$/u",$this->name)) || (!ctype_graph($this->name)))
+            return 'Имя должно состоять только из букв и без пробелов';
     }
 
     public function validateLogin(){
@@ -58,7 +58,10 @@ class SignupValidator{
         else{
             $error = $this->validateLoginLen();
             if(!empty($error))
-                return $error;           
+                return $error; 
+            $error = $this->validateLoginChars();
+            if(!empty($error))
+                return $error;          
          }
     }
 
@@ -66,6 +69,12 @@ class SignupValidator{
 
         if(strlen($this->login) < 6)
             return 'Логин должен быть не менее 6-ти симвлов';
+    }
+
+    private function validateLoginChars(){
+
+        if(!ctype_graph($this->login))
+            return 'Логин не может содержать пробелы';
     }
 
     public function validateEmail(){
