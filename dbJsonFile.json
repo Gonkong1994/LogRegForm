@@ -3,28 +3,21 @@
         "name": "Dmitri",
         "login": "log1233",
         "email": "123@mail.ru",
-        "password": "$2y$10$vBybtmTcveCHu2LIZW.6XufGe\/s9tU6iSCn2cFhwRhQluZ9NiCNGC",
-        "password_2": "123qwe"
+        "password": "$2y$10$u0E1o\/6N5KoEpss.jEJlM.0qZhDeBZb1xp0j2hozThputXrH4gGMK",
+        "password_2": "$2y$10$5U1YWchxaQCOMDjcWKs6her8jYeRzEw\/FpOJ1Cahba9Qfdfnm9Fi."
     },
     {
         "name": "Dmitri",
-        "login": "log123321323",
+        "login": "log1231231233",
         "email": "121233@mail.ru",
-        "password": "$2y$10$3xWsPUcJdxupiVz6OxCGQ.Zi\/xOVqU7Cm3sX.MvVu\/OTycZURcIky",
-        "password_2": "123qwe"
+        "password": "$2y$10$nQuPf0UbPsebgT.TeQyTeucmSH..pZYW9D80hgmdcUpfLtiiFozUK",
+        "password_2": "$2y$10$BmWvaCI57D1wifdoa7ysweXHEDimcGSN\/m3plIGVDkVwKp6QbRPwi"
     },
     {
         "name": "Dmitri",
-        "login": "kokoshanel",
-        "email": "example@mail.ru",
-        "password": "$2y$10$WwrB4ptNVHVo8Ptl5ry1nuj.P\/9dbXu5NE1Nu8a3rLL\/r60eM84MO",
-        "password_2": "123qwe"
-    },
-    {
-        "name": "Dmitri",
-        "login": "lokotok",
-        "email": "122323233@mail.ru",
-        "password": "$2y$10$tzAgN\/RsGpev2MlBq1jQ5.Y8OitQmwiOdY.cm9GNrtiinU2y5.2T6",
-        "password_2": "$2y$10$1ww0UK8KVAz9lg15j1WU3ug6o5TjfhPj8uI7n8jAgtXTzr8mZVzke"
+        "login": "administrator",
+        "email": "admin@mail.ru",
+        "password": "$2y$10$wyybsdfH5ay5i0e6\/VpRkOQvfnW2IwuWXKzKlq2ZcJz9jr5uoACBO",
+        "password_2": "$2y$10$jTU\/lyjbct\/WvRsslYKOGei1K7Uh.NXLxuRdi2gdKwSrNpGNlsmhC"
     }
 ]

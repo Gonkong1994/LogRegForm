@@ -1,16 +1,13 @@
 <?php
 require  'crud.php';
 
-    $title = "База данных";
-    require_once "../blocks/header.php";
-
-   
-
+$title = "База данных";
+require_once "../blocks/header.php"; 
 
 $userId = $_GET['id'];
-
 $user = getUserById($userId);
 ?>
+
 <div class="card">
     <div class="card-header">
         <h3>View User: <b><?php echo $user['name'] ?></b></h3>

@@ -1,11 +1,8 @@
 <?php
 
 function getUsers(){
-    return json_decode(file_get_contents('../dbJsonFile.json'), true);
-    
-
+    return json_decode(file_get_contents('../dbJsonFile.json'), true); 
 }
-
 
 function getUserById($id){
     $users = getUsers();
@@ -15,18 +12,15 @@ function getUserById($id){
         }
     }
     return null;
-
 }
 
 function deleteUser($id){
     $users = getUsers();
-
     foreach($users as $i => $user)
         if($user['login'] == $id){
             array_splice($users, $i, 1);
         }
     putJson($users);
-
 }
 
 function putJson($users){

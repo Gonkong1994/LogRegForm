@@ -1,56 +1,47 @@
 <?php
-    session_start();
-    $title = "Авторизация";   
-    require_once '../blocks/header.php';      
+session_start();      
+require_once '../blocks/header.php';    
+require '../crud/crud.php'; 
 
-    $data = $_POST;
 
-    if($data['login'] == "" || $data['password'] == "")
-        echo '<div style="color: green;">Введите свои даные!</div>';
-    
-    elseif(isset($data['do_login'])){        
-        $errors = array();
-        $jsonData = [];
-        //Read file
-        if(file_exists('../dbJsonFile.json')){            
+$title = "Авторизация";
 
-            $json = file_get_contents('../dbJsonFile.json');
-            $jsonData = json_decode($json, true);   
-            
-            foreach($jsonData as $key => $value){
-                if($data['login'] == $value['login']){                                       
-                     if(password_verify($data['password'], $value['password'])) {
-                        $_SESSION['logged_user'] = $value['login'];                   
-                        echo '<div style="color: green;">Вы успешно авторизованы!<br/>Можете перейти на <a href="/index.php">главную</a> страницу</div><hr>';
-                        header('location: logform.php');
-                        exit;
-                    }else 
-                         $errors[] = 'Пароль неверно введен!';                         
-                } 
-                else{
-                    $errors[] = 'Пользователь с таким логин не найден!';                   
-                }                             
+$data = $_POST;
+
+if($data['login'] == "" || $data['password'] == "")
+    echo '<div style="color: green;">Введите свои даные!</div>';
+elseif(isset($data['do_login'])){        
+    $errors = array();
+    $jsonData = getUsers();     //Read JSON file   
+    if(file_exists('../dbJsonFile.json')){                   
+        foreach($jsonData as $key => $value){
+            if($data['login'] == $value['login']){                                       
+                    if(password_verify($data['password'], $value['password'])) {
+                    $_SESSION['logged_user'] = $value['login'];                   
+                    echo '<div style="color: green;">Вы успешно авторизованы!<br/>Можете перейти на <a href="/index.php">главную</a> страницу</div><hr>';
+                    header('location: logform.php');
+                    exit;
+                }else 
+                     $errors[] = 'Пароль неверно введен!';                         
             } 
-            if( ! empty($errors))
-            {
-                echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';                    
-            }          
-                    
-        }
+            else{
+                $errors[] = 'Пользователь с таким логин не найден!';                   
+            }                             
+        } 
+        if( ! empty($errors))
+        {
+            echo '<div style="color: red;">'.array_shift($errors).'</div><hr>';                    
+        }                         
     }
-        
-    
-        
-        
+}                            
 ?>
+
 <?php if( isset($_SESSION['logged_user'])) : ?>
     Авторизован!<br>
     Привет, <?php echo $_SESSION['logged_user']; ?><br>
-    <a href="/form/logout.php">Выйти</a>
-    <hr>
-    
-    
-    <?php endif; ?>
+    <a href="/form/logout.php">Выйти</a>    
+    <hr>     
+<?php endif; ?>
 
 <div class="container mt-5">
     <h1>Авторизация</h1>

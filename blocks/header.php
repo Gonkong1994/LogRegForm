@@ -11,7 +11,13 @@
     <header>
     <a href = "../index.php">Главная</a> |
     <a href = "../form/logform.php">Авторизация</a> |
-    <a href = "../form/signupform.php">Регистрация</a> |
+    <a href = "../form/signupform.php">Регистрация</a> 
+    |<?php if($_SESSION['logged_user'] == "administrator") : ?>
+    
     <a href = "../crud/dbjson.php">База Данных</a>
-
+           
+    <?php endif; ?>
+   
     </header>
+    
+   
