@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "Admin interface" 
+AuthUserFile /OpenServer/domains/RegLogForm/crud/.htpasswd
+require valid-user
+<Files .htpasswd> 
+   deny from all
+</Files>
